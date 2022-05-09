@@ -63,7 +63,7 @@ const Listings = (props: any) => {
     //Query each gist  and get fork  details
     setIsLoading(false);
     return fullDataObj;
-  }, [q, p, o, s, per_page, fullDataObj]);
+  }, [q, p, o, s, per_page]);
 
   //Dropdown change handler
   const filterHandler = (selected: any) => {
