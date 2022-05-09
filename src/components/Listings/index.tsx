@@ -43,7 +43,6 @@ const Listings = (props: any) => {
       s ? "&sort=" + s : ""
     }${p ? "&page=" + p : ""}&per_page=${per_page ? per_page : itemPerPage}`;
 
-    console.log(gistsApiUrl);
     const userPromiseArr: any[] = [
       axios.get(`${gitHubUserApi}/${q}`, {
         headers: {
@@ -64,7 +63,7 @@ const Listings = (props: any) => {
     //Query each gist  and get fork  details
     setIsLoading(false);
     return fullDataObj;
-  }, [q, p, o, s, per_page]);
+  }, [q, p, o, s, per_page, fullDataObj]);
 
   //Dropdown change handler
   const filterHandler = (selected: any) => {
@@ -101,7 +100,7 @@ const Listings = (props: any) => {
     if (!q) {
       setIsLoading(false);
     }
-  }, []);
+  }, [q]);
 
   //Update nav url as per filter
   const updateQueryUrl = () => {
