@@ -22,7 +22,7 @@ const Card = (props: any) => {
       });
       setForkData(response?.data?.slice(0, 3));
     })();
-  }, []);
+  }, [data.forks_url]);
 
   const fileCount = fileArr?.length;
   let gistFileName = fileCount > 0 ? data?.files[fileArr[0]] : null;
@@ -105,6 +105,7 @@ const Card = (props: any) => {
                         href={`${gitHubGistUrl}/${item?.owner?.login}`}
                         className={styles.thumb}
                         target={"_blank"}
+                        rel={"noreferrer"}
                         key={index}
                       >
                         <Image

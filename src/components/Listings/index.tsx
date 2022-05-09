@@ -1,6 +1,6 @@
 import styles from "./index.module.scss";
 import { useEffect, useState } from "react";
-import { ISearchResult, IQuery, Iuser, IGist } from "../../classes/index";
+import { ISearchResult, IQuery, Iuser } from "../../classes/index";
 import SearchForm from "../SearchForm/index";
 import DropdownList from "../Dropdown/index";
 import Card from "../Card/index";
@@ -92,14 +92,14 @@ const Listings = (props: any) => {
         }
       })();
     }
-  }, [q, p, o, s, per_page]);
+  }, [q, p, o, s, per_page, handleSearch]);
 
   //Pandling page loading functionality
   useEffect(() => {
     if (!q) {
       setIsLoading(false);
     }
-  }, []);
+  }, [q]);
 
   //Update nav url as per filter
   const updateQueryUrl = () => {

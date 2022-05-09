@@ -27,7 +27,7 @@ const DropdownList = (props: any) => {
       {sortOptons.map((option: any, index) => (
         <Dropdown.Item
           key={index}
-          className={`item ${index == filterIndex ? styles.current : ""}`}
+          className={`item ${index === filterIndex ? styles.current : ""}`}
           eventKey={JSON.stringify(option)}
         >
           {" "}

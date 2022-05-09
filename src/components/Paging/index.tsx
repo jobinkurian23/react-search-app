@@ -7,7 +7,6 @@ import useQuery from "../../Hooks//useQuery";
 const Paging = (props: any) => {
   const { total, pagingHandler } = props;
   let query = useQuery();
-  const q = query.get("q");
   const per_page = query.get("per_page");
   const p = query.get("p");
 
@@ -22,7 +21,7 @@ const Paging = (props: any) => {
     if (p) {
       setCurrentPage(parseInt(p as string) - 1);
     }
-  }, [p]);
+  }, [p, per_page, total]);
   return (
     <ReactPaginate
       breakLabel={labels.breakLabel}
