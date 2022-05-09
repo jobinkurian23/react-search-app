@@ -1,0 +1,26 @@
+.pageContent {
+  min-height: 75vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.pageTitle {
+  font-size: 2.5rem;
+  color: $white;
+  line-height: 40px;
+  @include breakpoint(mobile) {
+    font-size: 1.2rem;
+  }
+}
+.introTextSmall {
+  font-size: 2rem !important;
+  color: $white;
+  line-height: 40px;
+  font-weight: 500;
+}
+.itemList {
+  flex-wrap: wrap;
+}
+.error {
+  color: $error;
+}

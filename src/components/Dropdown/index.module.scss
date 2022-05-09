@@ -1,0 +1,37 @@
+.Dropdown {
+  width: 300px;
+  float: right;
+  > button,
+  > button:focus {
+    background-color: $themeDark !important;
+    border-radius: 0;
+    box-shadow: none !important;
+    color: $white;
+    border: 1px solid $white !important;
+  }
+  & > div[class*="dropdown-menu"] {
+    border: 0;
+    margin: 2px 0 0 0;
+    width: 100%;
+    border-radius: 0;
+    background-color: $themeDark !important;
+    border: 1px solid $white !important;
+    color: $white;
+    padding: 0;
+    a,
+    a:active {
+      color: $white;
+      background-color: $themeDark !important;
+      border: 1px solid $white !important;
+      border-bottom: 0 !important;
+      &:hover,
+      &.current {
+        background-color: $white !important;
+        color: $themeDark;
+      }
+    }
+  }
+  @include breakpoint(mobile) {
+    width: 350px;
+  }
+}

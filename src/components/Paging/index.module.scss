@@ -1,0 +1,29 @@
+.paginaton {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  gap: 0 5px;
+  padding: 7px;
+  border: 1px solid $white;
+  li {
+    &.activeLink {
+      background-color: $white;
+      a {
+        color: $themeDark !important;
+      }
+    }
+    a {
+      padding: 10px;
+      color: $white !important;
+    }
+  }
+  @include breakpoint(mobile) {
+    gap: 0 2px;
+    flex-wrap: wrap;
+    li {
+      a {
+        padding: 5px;
+      }
+    }
+  }
+}

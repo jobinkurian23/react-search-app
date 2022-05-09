@@ -1,9 +1,18 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { shallow } from "enzyme";
+import App from "./App";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+const mockedUseLocation = jest.fn();
+
+jest.mock("react-router-dom", () => ({
+  ...(jest.requireActual("react-router-dom") as any),
+  useLocation: () => mockedUseLocation,
+}));
+
+describe("Component is properly rendered", () => {
+  const component = shallow(<App />);
+  expect(component).toMatchSnapshot();
+
+  it("should have button element", () => {
+    expect(component.find(".pageContent")).toHaveLength(1);
+  });
 });
