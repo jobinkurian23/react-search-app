@@ -49,7 +49,7 @@ const Card = (props: any) => {
         {fileCount > 0 ? (
           <>
             <div className={`${styles.cardRow} row`}>
-              <div className="col-4">
+              <div className="col-6 col-md-4">
                 <a href={data?.html_url}>
                   <svg
                     aria-hidden="true"
@@ -70,7 +70,7 @@ const Card = (props: any) => {
                   </label>
                 </a>
               </div>
-              <div className={`${styles.tags} col-8`}>
+              <div className={`${styles.tags} col-6 col-md-8`}>
                 <a href={data?.html_url}>
                   {tagsArr.map((item, index) => {
                     return <span key={index}>{item}</span>;
@@ -80,7 +80,7 @@ const Card = (props: any) => {
             </div>
             {forkData && forkData?.length > 0 ? (
               <div className={`${styles.cardRow} row`}>
-                <div className="col-4">
+                <div className="col-6 col-md-4">
                   <a href={`${data?.html_url}/forks`}>
                     <svg
                       aria-hidden="true"
@@ -99,7 +99,7 @@ const Card = (props: any) => {
                     <label>{labels.forks}</label>
                   </a>
                 </div>
-                <div className="col-8">
+                <div className="col-6 col-md-8">
                   {forkData?.map((item: any, index: number) => {
                     return (
                       <a
@@ -121,7 +121,7 @@ const Card = (props: any) => {
               </div>
             ) : null}
             <div className={`${styles.cardRow} row`}>
-              <div className="col-4">
+              <div className="col-6 col-md-4">
                 <a href={`${data?.html_url}#comments`}>
                   <svg
                     aria-hidden="true"

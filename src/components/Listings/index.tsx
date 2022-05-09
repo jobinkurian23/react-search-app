@@ -1,5 +1,5 @@
 import styles from "./index.module.scss";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { ISearchResult, IQuery, Iuser } from "../../classes/index";
 import SearchForm from "../SearchForm/index";
 import DropdownList from "../Dropdown/index";
@@ -37,11 +37,13 @@ const Listings = (props: any) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   //Handling Searh API, first call to get all users, and request for each user to get full details
-  const handleSearch = async () => {
+
+  const handleSearch = useCallback(async () => {
     let gistsApiUrl = `${gitHubUserApi}/${q}/gists?q=${o ? "&order=" + o : ""}${
       s ? "&sort=" + s : ""
     }${p ? "&page=" + p : ""}&per_page=${per_page ? per_page : itemPerPage}`;
 
+    console.log(gistsApiUrl);
     const userPromiseArr: any[] = [
       axios.get(`${gitHubUserApi}/${q}`, {
         headers: {
@@ -62,7 +64,7 @@ const Listings = (props: any) => {
     //Query each gist  and get fork  details
     setIsLoading(false);
     return fullDataObj;
-  };
+  }, [q, p, o, s, per_page]);
 
   //Dropdown change handler
   const filterHandler = (selected: any) => {
@@ -99,7 +101,7 @@ const Listings = (props: any) => {
     if (!q) {
       setIsLoading(false);
     }
-  }, [q]);
+  }, []);
 
   //Update nav url as per filter
   const updateQueryUrl = () => {
