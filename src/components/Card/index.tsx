@@ -22,7 +22,7 @@ const Card = (props: any) => {
       });
       setForkData(response?.data?.slice(0, 3));
     })();
-  }, [data.forks_url]);
+  }, [data?.forks_url]);
 
   const fileCount = fileArr?.length;
   let gistFileName = fileCount > 0 ? data?.files[fileArr[0]] : null;
@@ -71,9 +71,11 @@ const Card = (props: any) => {
                 </a>
               </div>
               <div className={`${styles.tags} col-8`}>
-                {tagsArr.map((item, index) => {
-                  return <span key={index}>{item}</span>;
-                })}
+                <a href={data?.html_url}>
+                  {tagsArr.map((item, index) => {
+                    return <span key={index}>{item}</span>;
+                  })}
+                </a>
               </div>
             </div>
             {forkData && forkData?.length > 0 ? (
