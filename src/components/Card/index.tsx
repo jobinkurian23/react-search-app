@@ -36,8 +36,8 @@ const Card = (props: any) => {
             </h3>
           ) : null}
 
-          <em>{`${user?.name}${user?.company ? `, ${user?.company}` : null}${
-            user?.location ? `, ${user?.location}` : null
+          <em>{`${user?.name}${user?.company ? `, ${user?.company}` : ""} ${
+            user?.location ? `, ${user?.location}` : ""
           }`}</em>
           {user?.created_at ? (
             <p>{moment(user?.created_at).fromNow()}</p>
