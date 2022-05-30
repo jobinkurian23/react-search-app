@@ -7,7 +7,7 @@ import Card from "../Card/index";
 import Loader from "../Loader/index";
 import Paging from "../Paging/index";
 import axios from "axios";
-import useQuery from "../../Hooks//useQuery";
+import useQuery from "../../Hooks/useQuery";
 import { useNavigate } from "react-router-dom";
 import { gitHubUserApi, itemPerPage, labels } from "../../utilities/constants";
 
@@ -102,7 +102,7 @@ const Listings = (props: any) => {
     }
   }, [q]);
 
-  //Update nav url as per filter
+  //Update nav url as per filter, test deploy
   const updateQueryUrl = () => {
     setIsLoading(true);
     const queryString = (
